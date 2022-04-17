@@ -24,10 +24,12 @@
 				return false;
 			}
 			
+			var formData = $("#frm").serialize();
+			
 			$.ajax({
 	  			//전송 전 세팅
 	  			type:"POST",
-	  			data:"userid="+userid+"&pass="+pass,   //var 로 선언한 변수
+	  			data:formData,   //var 로 선언한 변수
 	  			url:"loginWriteSub.do",   //저장될 곳 action
 	  			dataType:"text",     //return type
 	  			

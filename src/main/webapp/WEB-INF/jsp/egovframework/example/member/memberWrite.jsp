@@ -17,7 +17,8 @@
 	  $( function() {
 	    $( "#birth" ).datepicker({
 	      changeMonth: true,
-	      changeYear: true
+	      changeYear: true,
+	      dateFormat:"yymmdd"
 	    });
 	    
 	    

@@ -63,8 +63,34 @@
 	</select>
 	
 	
+	<select id="memberDAO.selectMemberDetail" resultClass="memberVO">
+		SELECT  userid,
+				pass,
+				name,
+				gender,
+				DATE_FORMAT(birth,'%Y%m%d') birth,
+				phone,
+				zipcode,
+				address
+		FROM
+			boardmember
+		WHERE
+			userid=#userid#
+	</select>
 	
 	
+	<update id="memberDAO.updateMemberDetail">
+		UPDATE boardmember 
+		     SET
+				name=#name#,
+				gender=#gender#,
+				birth=#birth#,
+				phone=#phone#,
+				zipcode=#zipcode#,
+				address=#address#
+		WHERE
+			userid=#userid#
+	</update>
 	
 	
 	

@@ -26,6 +26,14 @@ public class MemberDAO extends EgovAbstractDAO{
 		return (int) select("memberDAO.selectMemberCount", vo);
 	}
 
+
+	public MemberVO selectMemberDetail(String userid) {
+		return (MemberVO) select("memberDAO.selectMemberDetail",userid);
+	}
+
+	public int updateMemberDetail(MemberVO vo) {
+		return update("memberDAO.updateMemberDetail",vo);
+	}
 	
 
 }

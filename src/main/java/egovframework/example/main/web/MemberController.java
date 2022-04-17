@@ -117,6 +117,48 @@ public class MemberController {
 		return "member/loginWrite";
 	}
 	
-	
+	/*
+	 * 회원정보 보기
+	 */
+	@RequestMapping("/memberModifyWrite.do")
+	public String selectMemberModify( HttpSession session, ModelMap model ) throws Exception {
+		
+		String userid = (String) session.getAttribute("SessionUserID");
+		MemberVO vo = memberService.selectMemberDetail(userid);
+		model.addAttribute("memberVO", vo);
+		
+		return "member/memberModifyWrite";
+		
+	}
+	/*
+	 * 회원변경(수정)처리 (저장)
+	 */
+	@RequestMapping("/memberModifySave.do")
+	@ResponseBody
+	public String updateMemberDetail(MemberVO vo, HttpSession session) throws Exception {
+		
+		String message = "";
+		String userid = (String) session.getAttribute("SessionUserID");
+		vo.setUserid(userid);
+		
+		String birth = vo.getBirth();
+		if(birth != null) {
+			if( birth.length() == 10  && birth.indexOf("/") > -1  ) {
+				String[] b_array = birth.split("/");
+				String date = b_array[2]+"-"+b_array[0]+"-"+b_array[1];
+				vo.setBirth(date);
+			}
+		}
+		
+		int result = memberService.updateMemberDetail(vo);
+		
+		// String result = null; (성공)
+		if( result == 1 ) {
+			message = "ok";
+		}
+			
+		return message;
+	}
+
 	
 }

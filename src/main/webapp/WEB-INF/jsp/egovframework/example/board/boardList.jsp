@@ -57,7 +57,7 @@ a{
 	<tr>
 		<th width="25%"><a href="">홈</a></th>
 		<th width="25%"><a href="/board0416/boardList.do">게시판</a></th>
-		<th width="25%"><a href="">회원정보</a></th>
+		<th width="25%"><a href="/board0416/memberModifyWrite.do">회원정보</a></th>
 		<th width="25%"><a href="/board0416/logout.do">로그아웃</a></th>
 	</tr>
 </table>
