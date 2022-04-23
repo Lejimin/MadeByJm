@@ -117,34 +117,38 @@ function fn_submit(){
 </script>
 <body>
 <form id="frm">
-<table>
-	<caption>게시판 상세</caption>
-	<tr>
-		<th width="20%">제목</th>
-		<td width="80%">${boardVO.title }</td>
-	</tr>
-	<tr>
-		<th>글쓴이</th>
-		<td>${boardVO.name }</td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td height="50">  <!-- \n을 <br>로 바꾸기 fn함수적용  -->
-		${content}
-		</td>
-	</tr>
-	<tr>
-		<th>등록일</th>
-		<td>${boardVO.rdate }</td>
-	</tr>
-	<tr>
-		<th colspan="2">
-			<button type="button" onclick="location='boardList.do'">목록</button>
-			<button type="button" onclick="location='boardModifyWrite.do?unq=${boardVO.unq}'">수정</button>
-			<button type="button" onclick="location='passWrite.do?unq=${boardVO.unq}'">삭제</button>
-		</th>
-	</tr>	
-</table>
+	<table>
+		<caption>게시판 상세</caption>
+		<tr>
+			<th width="20%">제목</th>
+			<td width="80%">${boardVO.title }</td>
+		</tr>
+		<tr>
+			<th>글쓴이</th>
+			<td>${boardVO.name }</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td height="50">  <!-- \n을 <br>로 바꾸기 fn함수적용  -->
+			${content}
+			</td>
+		</tr>
+		<tr>
+			<th>등록일</th>
+			<td>${boardVO.rdate }</td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button type="button" onclick="location='boardList.do'">목록</button>
+				<button type="button" onclick="location='boardModifyWrite.do?unq=${boardVO.unq}'">수정</button>
+				<button type="button" onclick="location='passWrite.do?unq=${boardVO.unq}'">삭제</button>
+			</th>
+		</tr>
+	</table>
+	<div>
+		<textarea rows="2" cols="60"></textarea>
+		<button type="button">댓글등록</button>
+	</div>
 </form>
 </body>
 </html>

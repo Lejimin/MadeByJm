@@ -64,4 +64,6 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.selectNoticeList(nvo);
 	}
 
+
+
 }

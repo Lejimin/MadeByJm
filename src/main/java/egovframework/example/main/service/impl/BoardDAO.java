@@ -49,5 +49,7 @@ public class BoardDAO extends EgovAbstractDAO{
 		return list("boardDAO.selectNotiveList", nvo);
 	}
 
+	
+
 
 }

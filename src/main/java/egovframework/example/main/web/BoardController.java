@@ -70,7 +70,7 @@ public class BoardController {
 		vo.setEndIndex(endIndex);
 		
 		
-		
+		//게시판 리스트
 		List<?> list = boardService.selectBoardList(vo);
 		System.out.println("list: "+list);
 		
@@ -81,6 +81,7 @@ public class BoardController {
 		model.addAttribute("startRowNo", startRowNo);
 		model.addAttribute("total", total); 
 		model.addAttribute("totalPage", totalPage);
+		
 		//list받기
 		model.addAttribute("resultList", list);
 		model.addAttribute("noticeList", noticeList);
@@ -99,6 +100,7 @@ public class BoardController {
 		 * 상세보기
 		 */
 		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
+		
 		model.addAttribute("boardVO", boardVO);
 		
 		return "board/boardDetail";

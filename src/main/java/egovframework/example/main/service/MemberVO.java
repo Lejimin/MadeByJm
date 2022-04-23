@@ -10,6 +10,7 @@ public class MemberVO {
 	private String zipcode;
 	private String address;
 	private String reg;
+	private String role;
 	
 	
 	public String getUserid() {
@@ -65,6 +66,12 @@ public class MemberVO {
 	}
 	public void setReg(String reg) {
 		this.reg = reg;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	

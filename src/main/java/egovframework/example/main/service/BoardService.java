@@ -42,4 +42,5 @@ public interface BoardService {
 	 * 공지사항 리스트
 	 */
 	public List<?> selectNoticeList(NoticeVO nvo) throws Exception;
+	
 }

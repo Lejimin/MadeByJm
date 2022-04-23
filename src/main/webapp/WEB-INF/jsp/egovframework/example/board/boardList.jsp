@@ -11,6 +11,18 @@
 <meta charset="UTF-8">
 <title>게시판 리스트</title>
 </head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+$(document).mouseup(function (e){
+	if($("#modal").has(e.target).length === 0){
+		$("#modal").hide();
+	}
+});
+
+</script>
+
+
 
 <style>
 body{
@@ -50,9 +62,28 @@ a{
 	text-decoration:none;
 	color:#333333;
 }
+#notice_tr{
+	background-color: lightpink;
+}
+#modal{
+	width:200px;
+	height:200px;
+	border:1px solid gray;
+	background-color:white;
+	position:absolute;
+	top:30px;
+	left:100px;
+	z-index:3;
+}
 </style>
 
 <body>
+
+<!-- 모달창 -->
+<div id="modal">
+	<p>공지사항을 확인해주세요</p>
+</div>
+
 <table id="top_menu">
 	<tr>
 		<th width="25%"><a href="">홈</a></th>
@@ -87,9 +118,10 @@ a{
 		<th width="15%">조회수</th>
 	</tr>
 	
+	<!-- 공지사항 리스트 가져오기 -->
 	<c:set var="ncnt" value="1"/>
 	<c:forEach var="notice" items="${noticeList }">
-	<tr>
+	<tr id="notice_tr">
 		<td><c:out value="${ncnt }"/></td>
 		<td>${notice.title }</td>
 		<td>${notice.name }</td>
@@ -99,6 +131,8 @@ a{
 	<c:set var="ncnt" value="${ncnt+1 }"/>
 	</c:forEach>
 	
+	
+	<!-- 게시판 리스트  -->
 	<c:set var="cnt" value="${startRowNo }"/>
 	
 	<c:forEach var="result" items="${resultList }">
@@ -117,6 +151,7 @@ a{
 	
 </table>
 
+<!-- 페이지번호 -->
 <div style="width:600px;margin-top:5px;text-align:center;">
 	<c:forEach var="i" begin="1" end="${totalPage }">
 			<a href="boardList.do?viewPage=${i }"> ${i }</a> 
