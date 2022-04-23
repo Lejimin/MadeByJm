@@ -79,7 +79,7 @@ public class BoardController {
 		
 		
 		model.addAttribute("startRowNo", startRowNo);
-		model.addAttribute("total", total);
+		model.addAttribute("total", total); 
 		model.addAttribute("totalPage", totalPage);
 		//list받기
 		model.addAttribute("resultList", list);

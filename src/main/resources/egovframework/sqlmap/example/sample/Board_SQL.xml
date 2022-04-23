@@ -46,7 +46,7 @@
 				order by unq desc) a) b limit #startIndex#,#endIndex#  
     </select>
     
-    
+     
     <select id="boardDAO.selectNotiveList" resultClass="egovMap">
     	select unq, title, name, hits, date_format(rdate, '%Y-%m-%d') rdate 
     	from noticeboard 

@@ -31,7 +31,7 @@ public class BoardDAO extends EgovAbstractDAO{
 	public int updateBoardHits(int unq) {
 		return update("boardDAO.updateBoardHits", unq);
 	}
-
+ 
 	public int updateBoard(BoardVO vo) {
 		// TODO Auto-generated method stub
 		return update("boardDAO.updateBoard", vo);

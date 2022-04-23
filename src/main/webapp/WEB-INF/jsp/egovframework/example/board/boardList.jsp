@@ -103,7 +103,7 @@ a{
 	
 	<c:forEach var="result" items="${resultList }">
 	<tr>
-		<td><c:out value="${cnt }"/></td>
+		<td><c:out value="${cnt }"/></td> 
 		<td align="left">
 			<a href="boardDetail.do?unq=${result.unq }">${result.title }</a>
 		</td>

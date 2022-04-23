@@ -16,7 +16,7 @@ public class BoardVO {
 	private int startIndex = 1;
 	private int endIndex = 10;
 	
-
+ 
 	public int getViewPage() {
 		return viewPage;
 	}
