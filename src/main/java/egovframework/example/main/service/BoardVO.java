@@ -9,7 +9,7 @@ public class BoardVO {
 	private String content;
 	private int hits;
 	private String rdate;
-	
+
 	
 	//페이징처리용
 	private int viewPage = 1;
@@ -101,6 +101,7 @@ public class BoardVO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
+
 	
 	
 	

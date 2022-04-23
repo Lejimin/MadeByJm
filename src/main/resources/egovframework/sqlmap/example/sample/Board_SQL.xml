@@ -39,11 +39,26 @@
 						hits, 
 						date_format(rdate, '%Y-%m-%d') rdate 
 					from board 
-					<isNotNull property="searchGubun">
-						<isNotNull property="searchText">
-							where $searchGubun$ like '%$searchText$%'
-						</isNotNull>
-					</isNotNull>
+							WHERE 1=1
+				
+								 <isEqual prepend="AND" property="searchGubun" compareValue="all">
+									title like CONCAT('%',#searchText#,'%') OR
+									name like CONCAT('%',#searchText#,'%') OR
+									content like CONCAT('%',#searchText#,'%')
+								</isEqual> 
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="title">
+									title like CONCAT('%',#searchText#,'%')
+								</isEqual>
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="name">
+									name like CONCAT('%',#searchText#,'%')
+								</isEqual>
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="content">
+									content like CONCAT('%',#searchText#,'%')
+								</isEqual>
+						
 				order by unq desc) a) b limit #startIndex#,#endIndex#  
     </select>
     
@@ -61,7 +76,7 @@
     	select count(*) total from board
     				<isNotNull property="searchGubun">
 						<isNotNull property="searchText">
-							where $searchGubun$ like '%$searchText$%'
+							where $searchGubun$ like CONCAT('%',#searchText#,'%')
 						</isNotNull>
 					</isNotNull>
     </select>

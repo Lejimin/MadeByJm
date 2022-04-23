@@ -100,9 +100,10 @@ a{
 		<div>
 			<form name="searchfrm" method="post" action="boardList.do">
 				<select name="searchGubun" id="searchGubun">
-					<option value="title">제목</option>
-					<option value="name">글쓴이</option>
-					<option value="content">내용</option>
+					<option value="all" ${searchGubun == "all" ? 'selected' : ''}>전체</option>
+					<option value="title" ${searchGubun == "title" ? 'selected' : ''}>제목</option>
+					<option value="name" ${searchGubun == "name" ? 'selected' : ''}>글쓴이</option>
+					<option value="content" ${searchGubun == "content" ? 'selected' : ''}>내용</option>
 				</select>
 				<input type="text" name="searchText" id="searchText">
 				<button type="submit">검색</button>
