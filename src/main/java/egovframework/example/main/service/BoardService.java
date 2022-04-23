@@ -38,4 +38,8 @@ public interface BoardService {
 	 * 삭제처리
 	 */
 	public int deleteBoard(BoardVO vo) throws Exception;
+	/*
+	 * 공지사항 리스트
+	 */
+	public List<?> selectNoticeList(NoticeVO nvo) throws Exception;
 }

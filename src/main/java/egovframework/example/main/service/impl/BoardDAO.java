@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.example.main.service.BoardVO;
+import egovframework.example.main.service.NoticeVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
 
@@ -42,6 +43,10 @@ public class BoardDAO extends EgovAbstractDAO{
 
 	public int deleteBoard(BoardVO vo) {
 		return delete("boardDAO.deleteBoard", vo);
+	}
+
+	public List<?> selectNoticeList(NoticeVO nvo) {
+		return list("boardDAO.selectNotiveList", nvo);
 	}
 
 

@@ -87,6 +87,18 @@ a{
 		<th width="15%">조회수</th>
 	</tr>
 	
+	<c:set var="ncnt" value="1"/>
+	<c:forEach var="notice" items="${noticeList }">
+	<tr>
+		<td><c:out value="${ncnt }"/></td>
+		<td>${notice.title }</td>
+		<td>${notice.name }</td>
+		<td>${notice.rdate }</td>
+		<td>${notice.hits }</td>
+	</tr>
+	<c:set var="ncnt" value="${ncnt+1 }"/>
+	</c:forEach>
+	
 	<c:set var="cnt" value="${startRowNo }"/>
 	
 	<c:forEach var="result" items="${resultList }">

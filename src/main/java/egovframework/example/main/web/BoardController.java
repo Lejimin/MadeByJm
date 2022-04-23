@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.main.service.BoardService;
 import egovframework.example.main.service.BoardVO;
+import egovframework.example.main.service.NoticeVO;
 
 
 
@@ -40,7 +41,7 @@ public class BoardController {
 	
 	
 	@RequestMapping("/boardList.do")
-	public String selectBoardList(BoardVO vo, ModelMap model) throws Exception{
+	public String selectBoardList(BoardVO vo, NoticeVO nvo, ModelMap model) throws Exception{
 		int unit = 10;
 		//total 개수
 		int total = boardService.selectBoardTotal(vo);
@@ -49,9 +50,9 @@ public class BoardController {
 		
 		int viewPage = vo.getViewPage();
 		
-		if(viewPage > totalPage || viewPage < 1) {
-			viewPage = 1;
-		}
+		/*
+		 * if(viewPage > totalPage || viewPage < 1) { viewPage = 1; }
+		 */
 		// 1-> 0,10 // 2->11,20  //3->21,30
 		//startIndex : (1-1)*10 +1 -> 0
 		//startIndex : (2-1)*10 +1 -> 10
@@ -63,6 +64,7 @@ public class BoardController {
 		//int p3 = total -20;
 		
 		int startRowNo = total -(viewPage-1)*unit;
+		
 		//sql까지 가기위해 vo에 값을 담아줌
 		vo.setStartIndex(startIndex);
 		vo.setEndIndex(endIndex);
@@ -72,11 +74,16 @@ public class BoardController {
 		List<?> list = boardService.selectBoardList(vo);
 		System.out.println("list: "+list);
 		
+		//공지사항 리스트
+		List<?> noticeList = boardService.selectNoticeList(nvo);
+		
+		
 		model.addAttribute("startRowNo", startRowNo);
 		model.addAttribute("total", total);
 		model.addAttribute("totalPage", totalPage);
 		//list받기
 		model.addAttribute("resultList", list);
+		model.addAttribute("noticeList", noticeList);
 		return "board/boardList";
 	}
 	

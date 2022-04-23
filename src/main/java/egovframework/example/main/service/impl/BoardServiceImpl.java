@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import egovframework.example.main.service.BoardService;
 import egovframework.example.main.service.BoardVO;
+import egovframework.example.main.service.NoticeVO;
 
 
 
@@ -56,6 +57,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int deleteBoard(BoardVO vo) throws Exception {
 		return boardDAO.deleteBoard(vo);
+	}
+
+	@Override
+	public List<?> selectNoticeList(NoticeVO nvo) throws Exception {
+		return boardDAO.selectNoticeList(nvo);
 	}
 
 }
