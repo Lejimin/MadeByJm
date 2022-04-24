@@ -3,7 +3,7 @@ package egovframework.example.main.web;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.main.service.BoardService;
 import egovframework.example.main.service.BoardVO;
-import egovframework.example.main.service.MemberVO;
 import egovframework.example.main.service.NoticeVO;
 
 

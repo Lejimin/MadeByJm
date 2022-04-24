@@ -6,9 +6,8 @@
 <meta charset="UTF-8">
 <title>게시판 등록 화면</title>
 
-<script src="/myproject_new/script/jquery-1.12.4.js"></script>
-<script src="/myproject_new/script/jquery-ui.js"></script>
 
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <style>
