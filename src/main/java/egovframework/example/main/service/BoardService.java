@@ -43,4 +43,7 @@ public interface BoardService {
 	 */
 	public List<?> selectNoticeList(NoticeVO nvo) throws Exception;
 	
+
+	
+	
 }

@@ -147,7 +147,7 @@ function fn_submit(){
 	</table>
 	<div>
 		<textarea rows="2" cols="60"></textarea>
-		<button type="button">댓글등록</button>
+		<button type="button" onclick="location='ReplyWrite.do'">댓글등록</button>
 	</div>
 </form>
 </body>

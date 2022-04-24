@@ -6,6 +6,7 @@
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 	<typeAlias  alias="boardVO" type="egovframework.example.main.service.BoardVO"/>
 	<typeAlias  alias="NoticeVO" type="egovframework.example.main.service.NoticeVO"/>
+
 	
 	
 	
@@ -40,8 +41,7 @@
 						date_format(rdate, '%Y-%m-%d') rdate 
 					from board 
 							WHERE 1=1
-				
-								 <isEqual prepend="AND" property="searchGubun" compareValue="all">
+								<isEqual prepend="AND" property="searchGubun" compareValue="unq">
 									title like CONCAT('%',#searchText#,'%') OR
 									name like CONCAT('%',#searchText#,'%') OR
 									content like CONCAT('%',#searchText#,'%')
@@ -74,11 +74,24 @@
     
     <select id="boardDAO.selectBoardTotal" resultClass="java.lang.Integer">
     	select count(*) total from board
-    				<isNotNull property="searchGubun">
-						<isNotNull property="searchText">
-							where $searchGubun$ like CONCAT('%',#searchText#,'%')
-						</isNotNull>
-					</isNotNull>
+    				WHERE 1=1
+								<isEqual prepend="AND" property="searchGubun" compareValue="unq">
+									title like CONCAT('%',#searchText#,'%') OR
+									name like CONCAT('%',#searchText#,'%') OR
+									content like CONCAT('%',#searchText#,'%')
+								</isEqual> 
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="title">
+									title like CONCAT('%',#searchText#,'%')
+								</isEqual>
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="name">
+									name like CONCAT('%',#searchText#,'%')
+								</isEqual>
+								
+								<isEqual prepend="AND" property="searchGubun" compareValue="content">
+									content like CONCAT('%',#searchText#,'%')
+								</isEqual>
     </select>
     
     
@@ -101,6 +114,8 @@
     	update board set hits=hits+1 where unq=#unq#
     </update>
     
+
+
 
     
     <update id="boardDAO.updateBoard">

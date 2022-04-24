@@ -3,6 +3,7 @@ package egovframework.example.main.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.main.service.BoardService;
 import egovframework.example.main.service.BoardVO;
+import egovframework.example.main.service.MemberVO;
 import egovframework.example.main.service.NoticeVO;
 
 
@@ -85,12 +87,14 @@ public class BoardController {
 		//list받기
 		model.addAttribute("resultList", list);
 		model.addAttribute("noticeList", noticeList);
+	
 		return "board/boardList";
 	}
 	
 	
 	@RequestMapping("/boardDetail.do")
 	public String selectBoardDetail(BoardVO vo, ModelMap model) throws Exception{
+		
 		
 		/*
 		 * 조회수 증가
@@ -100,6 +104,8 @@ public class BoardController {
 		 * 상세보기
 		 */
 		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
+	
+	
 		
 		model.addAttribute("boardVO", boardVO);
 		

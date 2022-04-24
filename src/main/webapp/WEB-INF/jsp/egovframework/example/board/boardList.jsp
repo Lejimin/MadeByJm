@@ -100,12 +100,12 @@ a{
 		<div>
 			<form name="searchfrm" method="post" action="boardList.do">
 				<select name="searchGubun" id="searchGubun">
-					<option value="all" ${searchGubun == "all" ? 'selected' : ''}>전체</option>
-					<option value="title" ${searchGubun == "title" ? 'selected' : ''}>제목</option>
-					<option value="name" ${searchGubun == "name" ? 'selected' : ''}>글쓴이</option>
-					<option value="content" ${searchGubun == "content" ? 'selected' : ''}>내용</option>
+					<option value="unq" <c:if test="${searchGubun eq 'unq'}">selected</c:if>>전체</option>
+					<option value="title" <c:if test="${searchGubun eq 'title'}">selected</c:if>>제목</option>
+					<option value="name" <c:if test="${searchGubun eq 'name'}">selected</c:if>>글쓴이</option>
+					<option value="content" <c:if test="${searchGubun eq 'content'}">selected</c:if>>내용</option>
 				</select>
-				<input type="text" name="searchText" id="searchText">
+				<input type="text" name="searchText" id="searchText" value="${searchText }">
 				<button type="submit">검색</button>
 			</form>
 		</div>

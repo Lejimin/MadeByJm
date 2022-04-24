@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import egovframework.example.main.service.BoardService;
 import egovframework.example.main.service.BoardVO;
+import egovframework.example.main.service.MemberVO;
 import egovframework.example.main.service.NoticeVO;
 
 
@@ -63,6 +64,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<?> selectNoticeList(NoticeVO nvo) throws Exception {
 		return boardDAO.selectNoticeList(nvo);
 	}
+
+	
+	
+
+
+	
 
 
 

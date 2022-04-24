@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.example.main.service.BoardVO;
+
+import egovframework.example.main.service.MemberVO;
 import egovframework.example.main.service.NoticeVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
@@ -33,7 +35,6 @@ public class BoardDAO extends EgovAbstractDAO{
 	}
  
 	public int updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
 		return update("boardDAO.updateBoard", vo);
 	}
 
@@ -48,6 +49,13 @@ public class BoardDAO extends EgovAbstractDAO{
 	public List<?> selectNoticeList(NoticeVO nvo) {
 		return list("boardDAO.selectNotiveList", nvo);
 	}
+
+	
+	
+
+	
+
+
 
 	
 
