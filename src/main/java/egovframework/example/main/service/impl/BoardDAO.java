@@ -50,6 +50,11 @@ public class BoardDAO extends EgovAbstractDAO{
 		return list("boardDAO.selectNotiveList", nvo);
 	}
 
+	public void insertHashTag(BoardVO vo) {
+		insert("boardDAO.insertHashTag", vo);
+		
+	}
+
 	
 	
 

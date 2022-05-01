@@ -142,6 +142,11 @@
     	delete from board where unq=#unq# and pass=#pass#
     </delete>
     
-    
+    <insert id="boardDAO.insertHashTag">
+	    <![CDATA[
+	    	insert into hashtagtbl
+	    	(tag) value (#tag#)
+	    ]]>
+    </insert>
     
 </sqlMap>

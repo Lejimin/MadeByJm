@@ -161,4 +161,22 @@ public class BoardController {
 		return result+"";
 	}
 	
+	
+	@RequestMapping("/hashtag.do")
+	public String insertHashTag(BoardVO vo) throws Exception{
+		String hashtagcontent = vo.gettag();
+		String[] hashtagsplit = hashtagcontent.split(" ");
+		/* String hashtag = hashtagcontent.substring(hashtagcontent.indexOf("#")+1); */
+
+		for(int i=0; i<hashtagsplit.length; i++) {
+			/* String hashtag = hashtagsplit[i].substring(idx+1); */
+			System.out.println(hashtagsplit[i]);
+			if(hashtagsplit[i].contains("#")) {
+				vo.settag(hashtagsplit[i]);
+				boardService.insertHashTag(vo);
+			}
+		}
+		return "board/boardList";
+	}
+	
 }

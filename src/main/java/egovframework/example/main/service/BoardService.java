@@ -43,6 +43,8 @@ public interface BoardService {
 	 */
 	public List<?> selectNoticeList(NoticeVO nvo) throws Exception;
 	
+	public void insertHashTag(BoardVO vo) throws Exception;
+	
 
 	
 	

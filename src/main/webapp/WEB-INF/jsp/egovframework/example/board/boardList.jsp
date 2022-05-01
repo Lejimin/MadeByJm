@@ -163,9 +163,17 @@ a{
 </div>
 
 
+<div>
+<img src="images/dog.jpg" alt="강아지1"/>
+<img src="images/dog2.jpg" alt="강아지2"/>
+</div>
 
-
-
+<div>
+<form action="hashtag.do" method="post">
+	<textarea id="tag" name="tag"></textarea>
+	<button type="submit">전송</button>
+</form>
+</div>
 
 </body>
 </html>

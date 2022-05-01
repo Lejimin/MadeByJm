@@ -65,6 +65,12 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.selectNoticeList(nvo);
 	}
 
+	@Override
+	public void insertHashTag(BoardVO vo) throws Exception {
+		boardDAO.insertHashTag(vo);
+		
+	}
+
 	
 	
 
